@@ -88,45 +88,25 @@ pub(crate) struct SFILE {
 pub(crate) type FILE = SFILE;
 
 extern "C" {
-    fn __transpiler_isa(child: i32, ancestor: i32)
-    -> bool;
-    fn free(_: *mut ())
-    -> ();
-    fn fclose(_: *mut FILE)
-    -> i32;
-    fn munmap(_: *mut (), _: u64)
-    -> i32;
-    fn __builtin_object_size(_: *const (), _: i32)
-    -> u64;
-    fn __builtin___memcpy_chk(_: *mut (), _: *const (), _: u64, _: u64)
-    -> *mut ();
-    fn fread(__ptr: *mut (), __size: u64, __nitems: u64, __stream: *mut FILE)
-    -> u64;
-    fn calloc(__count: u64, __size: u64)
-    -> *mut ();
-    fn fprintf(_: *mut FILE, _: *const i8, ...)
-    -> i32;
-    fn malloc(__size: u64)
-    -> *mut ();
-    fn fseek(_: *mut FILE, _: i64, _: i32)
-    -> i32;
-    fn ftell(_: *mut FILE)
-    -> i64;
-    fn fopen(__filename: *const i8, __mode: *const i8)
-    -> *mut FILE;
-    fn fileno(_: *mut FILE)
-    -> i32;
-    fn fstat(_: i32, _: *mut Stat)
-    -> i32;
-    fn mmap(_: *mut (), _: u64, _: i32, _: i32, _: i32, _: OffT)
-    -> *mut ();
-    fn madvise(_: *mut (), _: u64, _: i32)
-    -> i32;
-    fn strcmp(__s1: *const i8, __s2: *const i8)
-    -> i32;
-    fn tolower(_c: i32)
-    -> i32;
-    fn __builtin_unreachable()
-    -> ();
+    fn __transpiler_isa(child: i32, ancestor: i32) -> bool;
+    fn free(_: *mut ()) -> ();
+    fn fclose(_: *mut FILE) -> i32;
+    fn munmap(_: *mut (), _: u64) -> i32;
+    fn __builtin_object_size(_: *const (), _: i32) -> u64;
+    fn __builtin___memcpy_chk(_: *mut (), _: *const (), _: u64, _: u64) -> *mut ();
+    fn fread(__ptr: *mut (), __size: u64, __nitems: u64, __stream: *mut FILE) -> u64;
+    fn calloc(__count: u64, __size: u64) -> *mut ();
+    fn fprintf(_: *mut FILE, _: *const i8, ...) -> i32;
+    fn malloc(__size: u64) -> *mut ();
+    fn fseek(_: *mut FILE, _: i64, _: i32) -> i32;
+    fn ftell(_: *mut FILE) -> i64;
+    fn fopen(__filename: *const i8, __mode: *const i8) -> *mut FILE;
+    fn fileno(_: *mut FILE) -> i32;
+    fn fstat(_: i32, _: *mut Stat) -> i32;
+    fn mmap(_: *mut (), _: u64, _: i32, _: i32, _: i32, _: OffT) -> *mut ();
+    fn madvise(_: *mut (), _: u64, _: i32) -> i32;
+    fn strcmp(__s1: *const i8, __s2: *const i8) -> i32;
+    fn tolower(_c: i32) -> i32;
+    fn __builtin_unreachable() -> ();
     static mut __stderrp: *mut FILE;
 }
