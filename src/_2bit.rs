@@ -23,12 +23,7 @@ pub(crate) extern "C" fn twobit_chrom_list_destroy(tb: &TwoBit) -> () {
                         }
                         break '__c0;
                     }
-                    {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
-                    };
+                    i = i.wrapping_add(1);
                 }
             }
             unsafe { free(unsafe { (*(*tb).cl).chrom } as *mut ()) };
@@ -65,12 +60,7 @@ pub(crate) extern "C" fn twobit_index_destroy(tb: &TwoBit) -> () {
                         }
                         break '__c1;
                     }
-                    {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
-                    };
+                    i = i.wrapping_add(1);
                 }
             }
             unsafe { free(unsafe { (*(*tb).idx).n_block_start } as *mut ()) };
@@ -94,12 +84,7 @@ pub(crate) extern "C" fn twobit_index_destroy(tb: &TwoBit) -> () {
                         }
                         break '__c2;
                     }
-                    {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
-                    };
+                    i = i.wrapping_add(1);
                 }
             }
             unsafe { free(unsafe { (*(*tb).idx).n_block_sizes } as *mut ()) };
@@ -126,12 +111,7 @@ pub(crate) extern "C" fn twobit_index_destroy(tb: &TwoBit) -> () {
                         }
                         break '__c3;
                     }
-                    {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
-                    };
+                    i = i.wrapping_add(1);
                 }
             }
             unsafe { free(unsafe { (*(*tb).idx).mask_block_start } as *mut ()) };
@@ -155,12 +135,7 @@ pub(crate) extern "C" fn twobit_index_destroy(tb: &TwoBit) -> () {
                         }
                         break '__c4;
                     }
-                    {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
-                    };
+                    i = i.wrapping_add(1);
                 }
             }
             unsafe { free(unsafe { (*(*tb).idx).mask_block_sizes } as *mut ()) };
@@ -429,10 +404,9 @@ pub(crate) extern "C" fn twobit_chrom_list_read(tb: *mut TwoBit) -> () {
                 }
                 18 => {
                     {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
+                        let __old = i;
+                        i = i.wrapping_add(1);
+                        __old
                     };
                     __state = 16;
                 }
@@ -574,10 +548,9 @@ pub(crate) extern "C" fn twobit_chrom_list_read(tb: *mut TwoBit) -> () {
                 }
                 41 => {
                     {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
+                        let __old = i;
+                        i = i.wrapping_add(1);
+                        __old
                     };
                     __state = 39;
                 }
@@ -860,10 +833,9 @@ pub(crate) extern "C" fn twobit_index_read(tb: *mut TwoBit, store_masked_1: i32)
                 }
                 35 => {
                     {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
+                        let __old = i;
+                        i = i.wrapping_add(1);
+                        __old
                     };
                     __state = 33;
                 }
@@ -1260,10 +1232,9 @@ pub(crate) extern "C" fn twobit_index_read(tb: *mut TwoBit, store_masked_1: i32)
                 }
                 81 => {
                     {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
+                        let __old = i;
+                        i = i.wrapping_add(1);
+                        __old
                     };
                     __state = 79;
                 }
@@ -1306,10 +1277,9 @@ pub(crate) extern "C" fn twobit_index_read(tb: *mut TwoBit, store_masked_1: i32)
                 }
                 88 => {
                     {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
+                        let __old = i;
+                        i = i.wrapping_add(1);
+                        __old
                     };
                     __state = 86;
                 }
@@ -1366,10 +1336,9 @@ pub(crate) extern "C" fn twobit_index_read(tb: *mut TwoBit, store_masked_1: i32)
                 }
                 97 => {
                     {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
+                        let __old = i;
+                        i = i.wrapping_add(1);
+                        __old
                     };
                     __state = 95;
                 }
@@ -1418,10 +1387,9 @@ pub(crate) extern "C" fn twobit_index_read(tb: *mut TwoBit, store_masked_1: i32)
                 }
                 104 => {
                     {
-                        let __p = &mut i;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
+                        let __old = i;
+                        i = i.wrapping_add(1);
+                        __old
                     };
                     __state = 102;
                 }
@@ -1465,7 +1433,7 @@ pub(crate) extern "C" fn twobit_open(fname: *const i8, store_masked_1: i32) -> *
     '__b10: loop {
         '__c10: loop {
             let mut fd: i32 = 0;
-            let mut fs: Stat = unsafe { core::mem::zeroed() };
+            let mut fs: Stat = Stat::default();
             if (tb).is_null() as i32 != 0 {
                 return 0 as *mut () as *mut TwoBit;
             }
@@ -1558,12 +1526,7 @@ pub(crate) extern "C" fn twobit_chrom_len(tb: &TwoBit, chrom: *const i8) -> u32 
                 }
                 break '__c11;
             }
-            {
-                let __p = &mut i;
-                let __t = *__p;
-                *__p = (*__p).wrapping_add(1);
-                __t
-            };
+            i = i.wrapping_add(1);
         }
     }
     return 0 as u32;
@@ -1594,15 +1557,13 @@ pub(crate) extern "C" fn bytes2bases(
         while offset < 4 && pos < sz {
             unsafe {
                 *seq.add({
-                    let __p = &mut pos;
-                    let __t = *__p;
-                    *__p = (*__p).wrapping_add(1);
-                    __t
+                    let __old = pos;
+                    pos = pos.wrapping_add(1);
+                    __old
                 } as usize) = byte2base(foo, {
-                    let __p = &mut offset;
-                    let __t = *__p;
-                    *__p += 1;
-                    __t
+                    let __old = offset;
+                    offset += 1;
+                    __old
                 })
             };
         }
@@ -1611,9 +1572,8 @@ pub(crate) extern "C" fn bytes2bases(
         }
         foo = unsafe {
             *byte.add({
-                let __p = &mut i;
-                *__p = (*__p).wrapping_add(1);
-                *__p
+                i = i.wrapping_add(1);
+                i
             } as usize)
         };
     }
@@ -1623,10 +1583,9 @@ pub(crate) extern "C" fn bytes2bases(
     while pos < sz.wrapping_sub(remainder) {
         foo = unsafe {
             *byte.add({
-                let __p = &mut i;
-                let __t = *__p;
-                *__p = (*__p).wrapping_add(1);
-                __t
+                let __old = i;
+                i = i.wrapping_add(1);
+                __old
             } as usize)
         };
         unsafe { *seq.add(pos.wrapping_add(3 as u32) as usize) = bases[(foo as i32 & 3) as usize] };
@@ -1651,20 +1610,14 @@ pub(crate) extern "C" fn bytes2bases(
             '__c14: loop {
                 unsafe {
                     *seq.add({
-                        let __p = &mut pos;
-                        let __t = *__p;
-                        *__p = (*__p).wrapping_add(1);
-                        __t
+                        let __old = pos;
+                        pos = pos.wrapping_add(1);
+                        __old
                     } as usize) = byte2base(foo, offset)
                 };
                 break '__c14;
             }
-            {
-                let __p = &mut offset;
-                let __t = *__p;
-                *__p += 1;
-                __t
-            };
+            offset += 1;
         }
     }
 }
@@ -1718,22 +1671,12 @@ pub(crate) extern "C" fn n_mask(seq: *mut i8, tb: &TwoBit, tid: u32, start: u32,
                             unsafe { *seq.add(pos as usize) = 'N' as i32 as i8 };
                             break '__c16;
                         }
-                        {
-                            let __p = &mut pos;
-                            let __t = *__p;
-                            *__p = (*__p).wrapping_add(1);
-                            __t
-                        };
+                        pos = pos.wrapping_add(1);
                     }
                 }
                 break '__c15;
             }
-            {
-                let __p = &mut i;
-                let __t = *__p;
-                *__p = (*__p).wrapping_add(1);
-                __t
-            };
+            i = i.wrapping_add(1);
         }
     }
 }
@@ -1804,22 +1747,12 @@ pub(crate) extern "C" fn soft_mask(
                             }
                             break '__c18;
                         }
-                        {
-                            let __p = &mut pos;
-                            let __t = *__p;
-                            *__p = (*__p).wrapping_add(1);
-                            __t
-                        };
+                        pos = pos.wrapping_add(1);
                     }
                 }
                 break '__c17;
             }
-            {
-                let __p = &mut i;
-                let __t = *__p;
-                *__p = (*__p).wrapping_add(1);
-                __t
-            };
+            i = i.wrapping_add(1);
         }
     }
 }
@@ -1948,12 +1881,7 @@ pub(crate) extern "C" fn twobit_sequence(
                 }
                 break '__c20;
             }
-            {
-                let __p = &mut i;
-                let __t = *__p;
-                *__p = (*__p).wrapping_add(1);
-                __t
-            };
+            i = i.wrapping_add(1);
         }
     }
     if tid == 0 as u32
@@ -2041,12 +1969,7 @@ pub(crate) extern "C" fn get_mask(
                     }
                     break '__c22;
                 }
-                {
-                    let __p = &mut *mask_idx_1;
-                    let __t = *__p;
-                    *__p = (*__p).wrapping_add(1);
-                    __t
-                };
+                *mask_idx_1 = (*mask_idx_1).wrapping_add(1);
             }
         }
     } else if *mask_idx_1 >= unsafe { *unsafe { (*(*tb).idx).n_block_count.add(tid as usize) } } {
@@ -2436,10 +2359,9 @@ pub(crate) extern "C" fn twobit_bases_worker(
                 52 => {
                     foo = unsafe {
                         *bytes.add({
-                            let __p = &mut j;
-                            let __t = *__p;
-                            *__p = (*__p).wrapping_add(1);
-                            __t
+                            let __old = j;
+                            j = j.wrapping_add(1);
+                            __old
                         } as usize)
                     } as u32;
                     __state = 61;
@@ -2726,12 +2648,7 @@ pub(crate) extern "C" fn twobit_bases(
                 }
                 break '__c25;
             }
-            {
-                let __p = &mut i;
-                let __t = *__p;
-                *__p = (*__p).wrapping_add(1);
-                __t
-            };
+            i = i.wrapping_add(1);
         }
     }
     if tid == 0 as u32

@@ -50,14 +50,14 @@ pub(crate) type BlksizeT = DarwinBlksizeT;
 pub(crate) type DarwinTimeT = i64;
 
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Default)]
 pub(crate) struct Timespec {
     pub(crate) tv_sec: i64,
     pub(crate) tv_nsec: i64,
 }
 
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Default)]
 pub(crate) struct Stat {
     pub(crate) st_dev: i32,
     pub(crate) st_mode: u16,
@@ -80,7 +80,7 @@ pub(crate) struct Stat {
 }
 
 #[repr(C)]
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Default)]
 pub(crate) struct SFILE {
     pub(crate) _opaque: [u8; 0],
 }
